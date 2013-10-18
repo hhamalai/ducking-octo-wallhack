@@ -84,14 +84,14 @@ def main():
                   "zmq-thr-%s" % msgsize,
                   ['/root/zeromq-3.2.4/perf/remote_thr', 'tcp://%s:5555' % HOST, msgsize, '100'],
                   ['/root/zeromq-3.2.4/perf/local_thr', 'tcp://%s:5555' % HOST, msgsize, '100'],
-                  {})
+                  {'LD_PRELOAD': 'libsdp.so'})
 
     for msgsize in msgsizes:
         run_suite(timestamp,
                   "zmq-lat-%s" % msgsize,
                   ['/root/zeromq-3.2.4/perf/remote_lat', 'tcp://%s:5555' % HOST, msgsize, '100'],
                   ['/root/zeromq-3.2.4/perf/local_lat', 'tcp://%s:5555' % HOST, msgsize, '100'],
-                  {})
+                  {'LD_PRELOAD': 'libsdp.so'})
 
 
 
